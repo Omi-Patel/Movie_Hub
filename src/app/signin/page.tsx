@@ -17,10 +17,7 @@ const LoginPage = () => {
         return toast.error("All Fields are required");
       }
 
-      const res = await axios.post(
-        `${process.env.BASE_URL}/api/user/auth/login`,
-        { email, password }
-      );
+      const res = await axios.post(`/api/user/auth/login`, { email, password });
 
       const data = res.data;
       toast.success(data.message);

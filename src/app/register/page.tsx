@@ -18,10 +18,11 @@ const RegisterPage = () => {
         return toast.error("All Fields are required");
       }
 
-      const res = await axios.post(
-        `${process.env.BASE_URL}/api/user/auth/register`,
-        { name, email, password }
-      );
+      const res = await axios.post(`/api/user/auth/register`, {
+        name,
+        email,
+        password,
+      });
 
       const data = res.data;
       toast.success(data.message);
