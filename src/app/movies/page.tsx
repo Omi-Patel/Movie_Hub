@@ -15,7 +15,7 @@ const MoviesPage = () => {
 
   const fetchAllMovies = async () => {
     try {
-      const res = await axios(`${process.env.BASE_URL}/api/movie`);
+      const res = await axios(`/api/movie`);
       const data = res.data.allMovies;
       toast.success("Movie Fetched Successfully!");
       setMovies(data);
