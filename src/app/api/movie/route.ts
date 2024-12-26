@@ -7,7 +7,7 @@ import connectDB from "@/lib/db";
 export async function GET(request: NextRequest) {
   await connectDB();
   try {
-    const allMovies = await movieModel.find();
+    const allMovies = await movieModel.find().populate("user", "-password");
 
     return NextResponse.json(
       { error: "false", message: "All Movies!", allMovies },

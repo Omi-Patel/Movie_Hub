@@ -8,7 +8,9 @@ const MoviesPage = () => {
   interface Movie {
     movieName: string;
     description: string;
-    // Add other properties if needed
+    user: {
+      name: string;
+    };
   }
 
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -17,6 +19,7 @@ const MoviesPage = () => {
     try {
       const res = await axios(`/api/movie`);
       const data = res.data.allMovies;
+
       toast.success("Movie Fetched Successfully!");
       setMovies(data);
     } catch (error) {
@@ -65,9 +68,15 @@ const MoviesPage = () => {
                   <p className="text-gray-400 text-sm mt-2">
                     {movie.description}
                   </p>
-                  <button className="mt-3 px-4 py-2 bg-yellow-500 text-gray-900 font-semibold rounded hover:bg-yellow-400 transition-colors">
-                    View Details
-                  </button>
+                  <div className="flex justify-between items-center  mt-4">
+                    <button className=" px-4 py-2 bg-yellow-500 text-gray-900 font-semibold rounded hover:bg-yellow-400 transition-colors">
+                      View Details
+                    </button>
+
+                    <p className="text-gray-400 text-sm  bg-gray-900 p-2 rounded-lg flex ">
+                      Author : <span className="font-semibold tracking-wide">{movie.user.name}</span>
+                    </p>
+                  </div>
                 </div>
               </div>
             ))
