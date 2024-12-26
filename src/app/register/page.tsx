@@ -19,7 +19,7 @@ const RegisterPage = () => {
       }
 
       const res = await axios.post(
-        "http://localhost:3000/api/user/auth/register",
+        `${process.env.BASE_URL}/api/user/auth/register`,
         { name, email, password }
       );
 

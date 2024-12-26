@@ -13,7 +13,7 @@ const AddMovie = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:3000/api/movie", {
+      const res = await axios.post(`${process.env.BASE_URL}/api/movie`, {
         movieName,
         description,
         imageUrl,

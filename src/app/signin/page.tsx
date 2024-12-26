@@ -18,7 +18,7 @@ const LoginPage = () => {
       }
 
       const res = await axios.post(
-        "http://localhost:3000/api/user/auth/login",
+        `${process.env.BASE_URL}/api/user/auth/login`,
         { email, password }
       );
 

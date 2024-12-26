@@ -12,7 +12,7 @@ const UserLandingPage = () => {
 
   const fetchUser = async () => {
     try {
-      const res = await axios("http://localhost:3000/api/user/profile");
+      const res = await axios(`${process.env.BASE_URL}/api/user/profile`);
       const data = res.data;
       setUser(data.user);
       setMovies(data.ownMovies);
@@ -25,7 +25,7 @@ const UserLandingPage = () => {
   const handleDelete = async (movieId: string) => {
     try {
       const res = await axios.delete(
-        `http://localhost:3000/api/movie/${movieId}`
+        `${process.env.BASE_URL}/api/movie/${movieId}`
       );
 
       const data = res.data;
