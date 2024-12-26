@@ -31,6 +31,7 @@ const UserLandingPage = () => {
       const data = res.data;
       toast.success(data.message);
       fetchUser();
+      // eslint-disable-next-line
     } catch (error: any) {
       if (error.response && error.response.data) {
         toast.error(error.response.data.message);

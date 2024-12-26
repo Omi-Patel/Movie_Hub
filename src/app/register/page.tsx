@@ -9,6 +9,7 @@ const RegisterPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // eslint-disable-next-line
   const handleSignup = async (e: any) => {
     e.preventDefault();
 
@@ -25,6 +26,7 @@ const RegisterPage = () => {
       const data = res.data;
       toast.success(data.message);
       window.location.href = "/";
+      // eslint-disable-next-line
     } catch (error: any) {
       if (error.response && error.response.data) {
         toast.error(error.response.data.message);

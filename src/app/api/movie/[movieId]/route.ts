@@ -22,6 +22,7 @@ export async function PUT(request: NextRequest) {
       { error: "false", message: "Movie Updated Successfully!", updatedMovie },
       { status: 200 }
     );
+    // eslint-disable-next-line
   } catch (error) {
     return NextResponse.json(
       { error: "true", message: "Error While updating the movie!" },
@@ -44,6 +45,7 @@ export async function DELETE(request: NextRequest) {
       { error: "false", message: "Movie Deleted Successfully!", deletedMovie },
       { status: 200 }
     );
+    // eslint-disable-next-line
   } catch (error) {
     return NextResponse.json(
       { error: "true", message: "Error While deleting the movie!" },

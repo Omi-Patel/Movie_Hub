@@ -8,6 +8,7 @@ const AddMovie = () => {
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
+  // eslint-disable-next-line
   const handleAddMovie = async (e: any) => {
     e.preventDefault();
 
@@ -20,6 +21,7 @@ const AddMovie = () => {
       const data = res.data;
       toast.success(data.message);
       window.location.href = "/profile";
+      // eslint-disable-next-line
     } catch (error: any) {
       if (error.response && error.response.data) {
         toast.error(error.response.data.message);

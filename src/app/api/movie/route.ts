@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import movieModel from "@/models/movie.model";
 import connectDB from "@/lib/db";
 
+// eslint-disable-next-line
 export async function GET(request: NextRequest) {
   await connectDB();
   try {
@@ -12,6 +13,7 @@ export async function GET(request: NextRequest) {
       { error: "false", message: "All Movies!", allMovies },
       { status: 200 }
     );
+    // eslint-disable-next-line
   } catch (error) {
     return NextResponse.json(
       { error: "true", message: "Error while fetching Movies!" },

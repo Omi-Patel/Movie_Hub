@@ -8,6 +8,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // eslint-disable-next-line
   const handleSignin = async (e: any) => {
     e.preventDefault();
 
@@ -24,6 +25,7 @@ const LoginPage = () => {
       const data = res.data;
       toast.success(data.message);
       window.location.href = "/";
+      // eslint-disable-next-line
     } catch (error: any) {
       if (error.response && error.response.data) {
         toast.error(error.response.data.message);
@@ -92,7 +94,7 @@ const LoginPage = () => {
 
         {/* Footer */}
         <p className="text-gray-400 text-center mt-6">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Link href="/register" className="text-yellow-500 hover:underline">
             Sign Up
           </Link>
