@@ -7,7 +7,7 @@ import connectDB from "@/lib/db";
 export async function GET(request: NextRequest) {
   await connectDB();
   try {
-    const allMovies = await movieModel.find().populate("user", "-password");
+    const allMovies = await movieModel.find().populate("user");
 
     return NextResponse.json(
       { error: "false", message: "All Movies!", allMovies },
@@ -15,6 +15,7 @@ export async function GET(request: NextRequest) {
     );
     // eslint-disable-next-line
   } catch (error) {
+    console.log(error);
     return NextResponse.json(
       { error: "true", message: "Error while fetching Movies!" },
       { status: 500 }

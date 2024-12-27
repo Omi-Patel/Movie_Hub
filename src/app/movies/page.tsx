@@ -22,8 +22,13 @@ const MoviesPage = () => {
 
       toast.success("Movie Fetched Successfully!");
       setMovies(data);
-    } catch (error) {
-      toast.error(error);
+      // eslint-disable-next-line
+    } catch (error: any) {
+      const errorMessage =
+        error.response?.data?.message ||
+        error.message ||
+        "Something went wrong!";
+      toast.error(errorMessage);
     }
   };
 
@@ -74,7 +79,10 @@ const MoviesPage = () => {
                     </button>
 
                     <p className="text-gray-400 text-sm  bg-gray-900 p-2 rounded-lg flex ">
-                      Author : <span className="font-semibold tracking-wide">{movie.user.name}</span>
+                      Author :{" "}
+                      <span className="font-semibold tracking-wide">
+                        {movie.user.name}
+                      </span>
                     </p>
                   </div>
                 </div>
